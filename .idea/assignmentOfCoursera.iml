@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="laravelCourseraAssignment" />
+    <orderEntry type="module" module-name="basicJavascript" />
+    <orderEntry type="module" module-name="chakuri3.com" />
+  </component>
+</module>
