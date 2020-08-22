@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c85d26fd-e948-4861-9777-13be555dec90" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/add.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/vcs.xml" afterDir="false" />
@@ -49,14 +52,14 @@
     <select />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../laravelCourseraAssignment" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1eODHioVNeUpr39clPDLhWw9P5B" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chakuri3.com" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -120,7 +123,11 @@
       <workItem from="1597730268900" duration="6215000" />
       <workItem from="1597766427450" duration="5675000" />
       <workItem from="1597815682847" duration="3128000" />
-      <workItem from="1597902120623" duration="7694000" />
+      <workItem from="1597902120623" duration="8299000" />
+      <workItem from="1597950673614" duration="1661000" />
+      <workItem from="1597986332576" duration="8590000" />
+      <workItem from="1598030596439" duration="1108000" />
+      <workItem from="1598074374111" duration="4406000" />
     </task>
     <servers />
   </component>

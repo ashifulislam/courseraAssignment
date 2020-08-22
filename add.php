@@ -17,8 +17,20 @@ $user_id=$_SESSION['user_id'];
          $email=htmlentities($_POST['email']);
          $headline=htmlentities($_POST['headline']);
          $summary=htmlentities($_POST['summary']);
+         $year=htmlentities($_POST['year']);
+         $description=htmlentities($_POST['desc']);
+           $submitbutton= $_POST['addPos'];
 
 
+
+            if($submitbutton){
+                echo 'yah add button clicked';
+
+                if(empty($year)||empty($description)){
+                    $all_error="All fields are required";
+
+                }
+            }
             if(empty($firstName) || empty($lastName) || empty($email) || empty($headline) || empty($summary)){
                 $all_error="All fields are required";
                 if (!strpos($email, "@") === true) {
@@ -45,6 +57,8 @@ $user_id=$_SESSION['user_id'];
                 $insert->bindParam(':summary',$summary);
                 //Now need to execute the operation
                 $insert->execute();
+                $profile_id=$con->lastInsertId();
+
 
                 $_SESSION['profile_addition']='Profile added';
                 header("location:index.php");
@@ -115,7 +129,7 @@ $user_id=$_SESSION['user_id'];
       }
 
     ?>
-    <form id="add_post" method="post" action="add.php">
+    <form id="add_post" name="add_details" method="post" action="add.php">
         <p>First Name:
             <input type="text" name="first_name" size="60"/></p><br>
 
@@ -151,6 +165,7 @@ $user_id=$_SESSION['user_id'];
 
 
     </form>
+
 </div>
     </div>
 </div>
@@ -160,10 +175,10 @@ $user_id=$_SESSION['user_id'];
         var add_button=$('#add_position');
         var wrapper=$('#position_fields');
         //How many field i need to add when click on the position
-        var field_html='<div>' +
+        var field_html='<div id="position">' +
             ' <p>Year: <input type="text" name="year" value="" />&nbsp;' +
-            '<input type="button" value="-"></p>' +
-            '<textarea name="pos_details" rows="8" cols="80"></textarea></div>';
+            '<input type="button" value="-" onclick="$(\'#position'+'\').remove();return false;"></p>' +
+            '<textarea name="desc" rows="8" cols="80"></textarea></div>';
         var initial_input_field=1;
         $(add_button).click(function(event){
             event.preventDefault();
