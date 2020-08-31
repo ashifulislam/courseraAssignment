@@ -3,9 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" filepath="$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../basicJavascript/.idea/basicJavascript.iml" filepath="$PROJECT_DIR$/../basicJavascript/.idea/basicJavascript.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" filepath="$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../laravelCourseraAssignment/.idea/laravelCourseraAssignment.iml" filepath="$PROJECT_DIR$/../laravelCourseraAssignment/.idea/laravelCourseraAssignment.iml" />
     </modules>
   </component>
 </project>

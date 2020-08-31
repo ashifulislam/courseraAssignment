@@ -10,7 +10,7 @@ $user_id=$_SESSION['user_id'];
         //Need to make a connection
         $con=new PDO("mysql:host=localhost;dbname=courseraassignment","root","");
         //You need to submit first the form
-        if(isset($_POST['email'])){
+        if(isset($_POST['add'])){
             //Fetch the value from the input field
          $firstName=htmlentities($_POST['first_name']);
          $lastName=htmlentities($_POST['last_name']);
@@ -18,19 +18,9 @@ $user_id=$_SESSION['user_id'];
          $headline=htmlentities($_POST['headline']);
          $summary=htmlentities($_POST['summary']);
          $year=htmlentities($_POST['year']);
-         $description=htmlentities($_POST['desc']);
-           $submitbutton= $_POST['addPos'];
+         $desc=htmlentities($_POST['desc']);
 
 
-
-            if($submitbutton){
-                echo 'yah add button clicked';
-
-                if(empty($year)||empty($description)){
-                    $all_error="All fields are required";
-
-                }
-            }
             if(empty($firstName) || empty($lastName) || empty($email) || empty($headline) || empty($summary)){
                 $all_error="All fields are required";
                 if (!strpos($email, "@") === true) {
@@ -38,6 +28,24 @@ $user_id=$_SESSION['user_id'];
                 }
 
             }
+
+             else if(isset($_POST["addPos1"])){
+                  if( empty($year)|| empty($desc)) {
+                       $all_error="All fields are required";
+
+                   }
+
+                 else if ( ! is_numeric($year) ) {
+                       $all_error="Position year must be numeric";
+                   }
+                 echo 'hello world';
+
+               }
+
+
+
+
+
 
 
 
@@ -152,6 +160,8 @@ $user_id=$_SESSION['user_id'];
 
         <p>Summary:<br/>
             <textarea name="summary" rows="8" cols="80"></textarea></p>
+        <p>Position : <input type="submit" name="addPos1" value="+">
+
         <p>Position : <input type="submit"  class="add_position" id="add_position" name="addPos" value="+">
            <div class="position_fields" id="position_fields">
 
@@ -159,7 +169,7 @@ $user_id=$_SESSION['user_id'];
         </p>
 
         <p>
-            <input type="submit" id="add_button" value="Add">
+            <input type="submit" name="add" id="add_button" value="Add">
             <input type="submit" name="cancel" value="Cancel">
         </p>
 

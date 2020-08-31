@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c85d26fd-e948-4861-9777-13be555dec90" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/add.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/chakuri3.com.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/config/auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/js/charts/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/js/charts/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/js/editable/mock-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/js/editable/mock-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/js/password-meter/zxcvbn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/js/password-meter/zxcvbn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/charts/Chart.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/charts/Chart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/editable/mock-active.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/editable/mock-active.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/password-meter/zxcvbn.js" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/public/user/showEmployer/js/password-meter/zxcvbn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/applyConfirmation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/applyConfirmation.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/candidateProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/candidateProfile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/searchresultForUser.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/searchresultForUser.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/viewYourProfile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/candidate/viewYourProfile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/pendingJobApplication.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/pendingJobApplication.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/employer/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/resources/views/layouts/user/employerSideBar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/resources/views/layouts/user/employerSideBar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../chakuri3.com/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/../chakuri3.com/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +109,8 @@
       <workItem from="1597950673614" duration="1661000" />
       <workItem from="1597986332576" duration="8590000" />
       <workItem from="1598030596439" duration="1108000" />
-      <workItem from="1598074374111" duration="4406000" />
+      <workItem from="1598074374111" duration="5352000" />
+      <workItem from="1598849442051" duration="6971000" />
     </task>
     <servers />
   </component>
