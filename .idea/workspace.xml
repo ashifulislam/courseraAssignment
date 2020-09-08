@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c85d26fd-e948-4861-9777-13be555dec90" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assignmentOfCoursera.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/add.php" afterDir="false" />
     </list>
@@ -111,6 +108,15 @@
       <workItem from="1598030596439" duration="1108000" />
       <workItem from="1598074374111" duration="5352000" />
       <workItem from="1598849442051" duration="6971000" />
+      <workItem from="1598893766506" duration="150000" />
+      <workItem from="1598940030715" duration="3613000" />
+      <workItem from="1598976926797" duration="85000" />
+      <workItem from="1599021032949" duration="4240000" />
+      <workItem from="1599056669514" duration="77000" />
+      <workItem from="1599366010807" duration="383000" />
+      <workItem from="1599454833941" duration="4979000" />
+      <workItem from="1599489361162" duration="593000" />
+      <workItem from="1599542620362" duration="4961000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,21 @@
 <?php
-    session_start();
+session_start();
 
 $user_id=$_SESSION['user_id'];
+
+?>
+<?php
+//Here I validate the profile
+function validate_profile(){
+    if (strlen($_POST['first_name'])==0 || strlen($_POST['last_name'])==0 || strlen($_POST['email'])==0 || strlen($_POST['headline'])==0 || strlen($_POST['summary'])==0){
+        return "All fields are required";
+
+    }
+   else if (!strpos($_POST['email'], "@") === true) {
+        return 'Email address must contain @';
+    }
+}
+
 
 ?>
 
@@ -10,73 +24,43 @@ $user_id=$_SESSION['user_id'];
         //Need to make a connection
         $con=new PDO("mysql:host=localhost;dbname=courseraassignment","root","");
         //You need to submit first the form
-        if(isset($_POST['add'])){
+        if(isset($_POST['add'])) {
             //Fetch the value from the input field
-         $firstName=htmlentities($_POST['first_name']);
-         $lastName=htmlentities($_POST['last_name']);
-         $email=htmlentities($_POST['email']);
-         $headline=htmlentities($_POST['headline']);
-         $summary=htmlentities($_POST['summary']);
-         $year=htmlentities($_POST['year']);
-         $desc=htmlentities($_POST['desc']);
+            $firstName = htmlentities($_POST['first_name']);
+            $lastName = htmlentities($_POST['last_name']);
+            $email = htmlentities($_POST['email']);
+            $headline = htmlentities($_POST['headline']);
+            $summary = htmlentities($_POST['summary']);
+
+            if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email'])&&
+            isset($_POST['headline']) && isset($_POST['summary'])){
+                $msg=validate_profile();
+                if(is_string($msg)){
+                    $all_error=$msg;
 
 
-            if(empty($firstName) || empty($lastName) || empty($email) || empty($headline) || empty($summary)){
-                $all_error="All fields are required";
-                if (!strpos($email, "@") === true) {
-                    $email_sign_error='Email address must contain @';
+                }
+                else{
+
+                    //To create an insert query
+                    $insert = $con->prepare("insert into profile(user_id,first_name,last_name,email,headline,summary)
+                values(:user_id,:firstName,:lastName,:email,:headline,:summary)");
+                    //Here we need to bind those variable for storing value into the database
+                    $insert->bindParam(':user_id', $user_id);
+                    $insert->bindParam(':firstName', $firstName);
+                    $insert->bindParam(':lastName', $lastName);
+                    $insert->bindParam(':email', $email);
+                    $insert->bindParam(':headline', $headline);
+                    $insert->bindParam(':summary', $summary);
+                    //Now need to execute the operation
+                    $insert->execute();
+
+
+                    $_SESSION['profile_addition'] = 'Profile added';
+                    header("location:index.php");
+
                 }
 
-            }
-
-             else if(isset($_POST["addPos1"])){
-                  if( empty($year)|| empty($desc)) {
-                       $all_error="All fields are required";
-
-                   }
-
-                 else if ( ! is_numeric($year) ) {
-                       $all_error="Position year must be numeric";
-                   }
-                 echo 'hello world';
-
-               }
-
-
-
-
-
-
-
-
-//...
-            else {
-
-
-                //To create an insert query
-                $insert=$con->prepare("insert into profile(user_id,first_name,last_name,email,headline,summary)
-            values(:user_id,:firstName,:lastName,:email,:headline,:summary)");
-                //Here we need to bind those variable for storing value into the database
-                $insert->bindParam(':user_id',$user_id);
-                $insert->bindParam(':firstName',$firstName);
-                $insert->bindParam(':lastName',$lastName);
-                $insert->bindParam(':email',$email);
-                $insert->bindParam(':headline',$headline);
-                $insert->bindParam(':summary',$summary);
-                //Now need to execute the operation
-                $insert->execute();
-                $profile_id=$con->lastInsertId();
-
-
-                $_SESSION['profile_addition']='Profile added';
-                header("location:index.php");
-
-
-            }
-
-
-
-
 
 
 
@@ -90,6 +74,9 @@ $user_id=$_SESSION['user_id'];
 
 
 
+
+
+        }
     }catch(PDOException $e){
         echo "error".$e->getMessage();
     }
@@ -160,9 +147,8 @@ $user_id=$_SESSION['user_id'];
 
         <p>Summary:<br/>
             <textarea name="summary" rows="8" cols="80"></textarea></p>
-        <p>Position : <input type="submit" name="addPos1" value="+">
 
-        <p>Position : <input type="submit"  class="add_position" id="add_position" name="addPos" value="+">
+        <p>Position : <input type="submit"  class="add_position" id="add_position" name="addPosition" value="+">
            <div class="position_fields" id="position_fields">
 
            </div>
@@ -180,25 +166,53 @@ $user_id=$_SESSION['user_id'];
     </div>
 </div>
 <script type="text/javascript">
+    // $(document).ready(function(){
+    //     var max_field=9;//I restrict that how many times you are eligible to give input
+    //     var add_button=$('#add_position');
+    //     var wrapper=$('#position_fields');
+    //     var number_increment=1;
+    //     //How many field i need to add when click on the position
+    //     var field_html='<div id="position">' +
+    //         ' <p>Year: <input type="text" class="year" name="year"  value="" />&nbsp;' +
+    //         '<input type="button" value="-" onclick="$(\'#position'+'\').remove();return false;"></p>' +
+    //         '<textarea name="desc" rows="8" cols="80"></textarea></div>';
+    //     var initial_input_field=1;
+    //     $(add_button).click(function(event){
+    //         event.preventDefault();
+    //         if(initial_input_field<max_field){
+    //             initial_input_field++;//increment initial input field
+    //             $(wrapper).append(field_html);
+    //         }
+    //     });
+    //
+    // });
     $(document).ready(function(){
-        var max_field=9;//I restrict that how many times you are eligible to give input
+        var countPos=0;
         var add_button=$('#add_position');
         var wrapper=$('#position_fields');
-        //How many field i need to add when click on the position
-        var field_html='<div id="position">' +
-            ' <p>Year: <input type="text" name="year" value="" />&nbsp;' +
-            '<input type="button" value="-" onclick="$(\'#position'+'\').remove();return false;"></p>' +
-            '<textarea name="desc" rows="8" cols="80"></textarea></div>';
-        var initial_input_field=1;
+        window.console && console.log('Document ready called');
         $(add_button).click(function(event){
+            // http://api.jquery.com/event.preventdefault/
             event.preventDefault();
-            if(initial_input_field<max_field){
-                initial_input_field++;//increment initial input field
-                $(wrapper).append(field_html);
+            if ( countPos >=9 ) {
+                alert("Maximum of nine position entries exceeded");
+                return;
             }
+            countPos++;
+            window.console && console.log("Adding position "+countPos);
+            $(wrapper).append(
+                '<div id="position'+countPos+'"> \
+            <p>Year: <input type="text" name="year'+countPos+'" value="" /> \
+            <input type="button" value="-" \
+                onclick="$(\'#position'+countPos+'\').remove();return false;"></p> \
+            <textarea name="desc'+countPos+'" rows="8" cols="80"></textarea>\
+            </div>');
         });
-
     });
+
+
+
+
 </script>
 
 </body>
