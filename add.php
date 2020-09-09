@@ -15,6 +15,20 @@ function validate_profile(){
         return 'Email address must contain @';
     }
 }
+function validate_position(){
+    for($i=1; $i<9; $i++){
+        if(! isset($_POST['year'.$i]))continue;
+        if(! isset($_POST['desc'.$i]))continue;
+        $year=$_POST['year'.$i];
+        $desc=$_POST['desc'.$i];
+        if(strlen($year)==0 || strlen($desc)==0){
+            return "All fields are required";
+        }
+        else if(! is_numeric($year)){
+            return 'year name must be numeric';
+        }
+    }
+}
 
 
 ?>
@@ -36,15 +50,23 @@ function validate_profile(){
             isset($_POST['headline']) && isset($_POST['summary'])){
                 $msg=validate_profile();
                 if(is_string($msg)){
-                    $all_error=$msg;
-
+                   $_SESSION['error_message']=$msg;
+                   header('location:add.php');
+                   return;
 
                 }
-                else{
+               $msg=validate_position();
+               if(is_string($msg)){
+                    $_SESSION['error_message']=$msg;
+                    header('location:add.php');
+                    return;
+                }
 
+
+                    //insert to profile
                     //To create an insert query
                     $insert = $con->prepare("insert into profile(user_id,first_name,last_name,email,headline,summary)
-                values(:user_id,:firstName,:lastName,:email,:headline,:summary)");
+                    values(:user_id,:firstName,:lastName,:email,:headline,:summary)");
                     //Here we need to bind those variable for storing value into the database
                     $insert->bindParam(':user_id', $user_id);
                     $insert->bindParam(':firstName', $firstName);
@@ -54,12 +76,31 @@ function validate_profile(){
                     $insert->bindParam(':summary', $summary);
                     //Now need to execute the operation
                     $insert->execute();
+                    $profile_id=$con->lastInsertId();
 
+                    //insert to position
+                    $rank=1;
+                    for($i=1; $i<=9; $i++){
+                        if(! isset($_POST['year'.$i])) continue;
+                        if(! isset($_POST['desc'.$i])) continue;
+                        $insert = $con->prepare("insert into position(profile_id,rank,year,description)
+                    values(:profile_id,:rank,:year,:desc)");
+                        //Here we need to bind those variable for storing value into the database
+                        $insert->bindParam(':profile_id', $profile_id);
+                        $insert->bindParam(':rank', $rank);
+                        $insert->bindParam(':year', $lastName);
+                        $insert->bindParam(':desc', $email);
+
+                        //Now need to execute the operation
+                        $rank++;
+                        $insert->execute();
+
+                    }
 
                     $_SESSION['profile_addition'] = 'Profile added';
                     header("location:index.php");
 
-                }
+
 
 
 
@@ -112,16 +153,20 @@ function validate_profile(){
     <h1>Adding Profile for UMSI</h1>
     <?php
 
-       if(isset($all_error)){
+       if(isset($_SESSION['error_message'])) {
+           $error = $_SESSION['error_message'];
+           unset($_SESSION["error_message"]);
+
+
            echo '<span class="text-danger">';
 
 
-            echo $all_error;
+           echo $error;
 
 
+           echo '</span>';
+       }
 
-  echo  '</span>';
-      }
 
     ?>
     <form id="add_post" name="add_details" method="post" action="add.php">
@@ -166,26 +211,6 @@ function validate_profile(){
     </div>
 </div>
 <script type="text/javascript">
-    // $(document).ready(function(){
-    //     var max_field=9;//I restrict that how many times you are eligible to give input
-    //     var add_button=$('#add_position');
-    //     var wrapper=$('#position_fields');
-    //     var number_increment=1;
-    //     //How many field i need to add when click on the position
-    //     var field_html='<div id="position">' +
-    //         ' <p>Year: <input type="text" class="year" name="year"  value="" />&nbsp;' +
-    //         '<input type="button" value="-" onclick="$(\'#position'+'\').remove();return false;"></p>' +
-    //         '<textarea name="desc" rows="8" cols="80"></textarea></div>';
-    //     var initial_input_field=1;
-    //     $(add_button).click(function(event){
-    //         event.preventDefault();
-    //         if(initial_input_field<max_field){
-    //             initial_input_field++;//increment initial input field
-    //             $(wrapper).append(field_html);
-    //         }
-    //     });
-    //
-    // });
     $(document).ready(function(){
         var countPos=0;
         var add_button=$('#add_position');
